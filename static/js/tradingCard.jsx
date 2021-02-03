@@ -59,57 +59,27 @@ function TradingCard(props) {
   );
 }
 
-ReactDOM.render(
-  (
-    <TradingCard
-      name="Balloonicorn"
-      skill="video games"
-      imgUrl="/static/img/balloonicorn.jpg"
-    />
-  ),
-  document.querySelector('#balloonicorn')
-);
+function TradingCardContainer() {
+  const tradingCards = [];
+
+  for (const currentCard of tradingCardData) {
+    tradingCards.push(
+      <TradingCard
+        name={currentCard.name}
+        skill={currentCard.skill}
+        imgUrl={currentCard.imgUrl}
+      />
+    );
+  }
+  
+  return (
+    <React.Fragment>
+      {tradingCards}
+    </React.Fragment>
+  );
+}
 
 ReactDOM.render(
-  (
-    <TradingCard
-      name="Float"
-      skill="baking pretzels"
-      imgUrl="/static/img/float.jpg"
-    />
-  ),
-  document.querySelector('#float')
-);
-
-ReactDOM.render(
-  (
-    <TradingCard
-      name="Llambda"
-      skill="knitting scarves"
-      imgUrl="/static/img/llambda.jpg"
-    />
-  ),
-  document.querySelector('#llambda')
-);
-
-ReactDOM.render(
-  (
-    <TradingCard
-      name="Merial"
-      skill="Swimming Gracefully"
-      imgUrl="static/img/merge.jpg"
-    />
-  ),
-  document.querySelector('#merial')
-);
-
-ReactDOM.render(
-  (
-    <TradingCard
-      name="Morphy"
-      skill="Polymorphism"
-      imgUrl="static/img/polymorphism.jpg"
-    />
-  ),
-  document.querySelector('#morphy')
+  <TradingCardContainer />,
+  document.querySelector('#container')
 );
